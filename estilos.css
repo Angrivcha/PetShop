@@ -1,0 +1,53 @@
+* {
+ margin: 0;
+padding: 0;
+box-sizing: border-box;
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+    gap: 30px;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+header {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+header img {
+    width: 60px;
+    height: 60px;
+    object-fit: contain;
+}
+
+.logo-link {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+
+    text-decoration: none;
+    color: black;
+}
+main {
+    flex: 1;
+    overflow-y: auto;
+    padding: 20px;
+}
+
+footer {
+    height: 60px;
+    background-color: lightgray;
+    padding: 20px;
+    flex-shrink: 0;
+}
