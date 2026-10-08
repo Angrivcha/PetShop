@@ -9,7 +9,7 @@
     <script src="carrito.js" defer></script>
 </head>
 <body>
-    <!-- Encabezado con el logo y el nombre de la tienda. -->
+    <!-- Logo y nombre -->
     <header>
         <a href="index.html" class="logo-link">
             <img src="imagenes/logo.png" alt="Logo NaturPet" width="60" height="60">
@@ -22,7 +22,7 @@
         </label>
     </header>
 
-    <!-- El menú permite ir a las secciones de esta misma página. -->
+    <!-- Menú -->
     <nav aria-label="Menú principal">
         <ul>
             <li><a href="#nosotros">NOSOTROS</a></li>
@@ -33,7 +33,7 @@
     </nav>
 
     <main>
-        <!-- Presentación de la tienda -->
+        <!-- Nosotros -->
         <section id="nosotros" class="bienvenida">
             <div class="bienvenida-texto">
                 <h2>Nosotros</h2>
@@ -47,7 +47,7 @@
                 alt="Perro descansando en una cama junto a una ventana" width="1536" height="1024">
         </section>
 
-        <!-- Catálogo de productos -->
+        <!-- Productos -->
         <section id="productos">
             <h2>Productos</h2>
             <p>Artículos para la alimentación, el descanso, el juego y el cuidado de tu mascota.</p>
@@ -62,7 +62,7 @@
                 <li><a href="#higiene">Higiene</a></li>
             </ul>
 
-            <!-- Cada artículo se presenta en una tarjeta con imagen y descripción. -->
+            <!-- Lista de productos -->
             <div class="lista-productos">
                 <article class="producto" id="alimentos">
                     <img src="imagenes/snacks-perro.png" alt="Imagen de una bolsa de premios para perro"
@@ -179,7 +179,7 @@
             </div>
             <p class="nota-productos">Consulta las medidas, presentaciones y disponibilidad antes de pedir.</p>
         </section>
-        <!-- Carrito y compra simulada -->
+        <!-- Carrito -->
         <section id="carrito" aria-labelledby="titulo-carrito">
             <h2 id="titulo-carrito" tabindex="-1">Tu carrito</h2>
             <p id="carrito-vacio">Tu carrito está vacío. Elige algo del catálogo para empezar.</p>
@@ -190,7 +190,7 @@
             <p class="nota-productos">Carrito de práctica: todavía no realiza pedidos ni pagos.
                 Los productos se recogen en tienda. Al recargar la página, el carrito se vacía.</p>
             <div id="compra" class="compra" hidden>
-                <!-- Paso 1: datos del cliente -->
+                <!-- Datos del cliente -->
                 <form id="formulario-compra">
                     <h3>Datos para tu pedido de prueba</h3>
                     <p>Completa los campos obligatorios. Esta compra es una simulación.</p>
@@ -213,7 +213,7 @@
                         <button type="button" id="cancelar-compra">Volver al carrito</button>
                     </div>
                 </form>
-                <!-- Paso 2: resumen antes de confirmar -->
+                <!-- Resumen del pedido -->
                 <div id="revision-pedido" hidden>
                     <h3 id="titulo-revision" tabindex="-1">Revisa tu pedido</h3>
                     <p id="resumen-cliente"></p>
@@ -227,7 +227,7 @@
                         <button type="button" id="editar-datos">Editar datos</button>
                     </div>
                 </div>
-                <!-- Paso 3: compra de prueba completada -->
+                <!-- Mensaje de confirmación -->
                 <div id="pedido-completado" hidden>
                     <h3 id="titulo-confirmacion" tabindex="-1">¡Pedido de prueba completado!</h3>
                     <p>Terminaste la simulación de compra. No se realizó ningún cobro ni se envió un pedido a la tienda.</p>
@@ -236,7 +236,7 @@
             </div>
         </section>
 
-        <!-- Información de la tienda y guía de compra -->
+        <!-- Sobre la tienda -->
         <section class="sobre-tienda">
             <h2>Un poco sobre NaturPet</h2>
             <p>Queremos reunir en un solo lugar artículos para la comida, el juego
@@ -257,7 +257,7 @@
         </section>
     </main>
 
-    <!-- Pie de página con la sección de contacto. -->
+    <!-- Contacto -->
     <footer>
         <section id="contacto">
             <h2>Contacto</h2>

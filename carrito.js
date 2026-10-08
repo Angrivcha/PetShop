@@ -1,4 +1,4 @@
-// Un arreglo guarda los productos mientras la página está abierta.
+// Productos agregados al carrito
 let carrito = [];
 
 // Elementos del carrito
@@ -10,7 +10,7 @@ const mensajeCarrito = document.getElementById('mensaje-carrito');
 const vaciarCarrito = document.getElementById('vaciar-carrito');
 const botonesAgregar = document.querySelectorAll('.agregar-carrito');
 
-// Formulario y pasos de la compra
+// Elementos del formulario
 const continuarCompra = document.getElementById('continuar-compra');
 const compra = document.getElementById('compra');
 const formularioCompra = document.getElementById('formulario-compra');
@@ -23,7 +23,7 @@ const cancelarCompra = document.getElementById('cancelar-compra');
 const confirmarPedido = document.getElementById('confirmar-pedido');
 
 // Funciones del carrito
-// Creamos los botones de cantidad y de quitar para cada producto.
+// Botones de cantidad y quitar
 function crearBoton(texto, accion, producto) {
     const boton = document.createElement('button');
     boton.type = 'button';
@@ -52,7 +52,7 @@ function cambiarCantidad(id, accion) {
     mostrarCarrito();
     mensajeCarrito.textContent = 'Carrito actualizado. Total: ' + totalCarrito.textContent;
 
-    // Conservamos el foco del teclado después de dibujar la lista.
+    // Volver al botón al usar el teclado
     const botonActualizado = document.getElementById(accion + '-' + id);
     if (botonActualizado) {
         botonActualizado.focus();
@@ -101,12 +101,12 @@ function mostrarCarrito() {
     carritoVacio.hidden = carrito.length > 0;
     vaciarCarrito.disabled = carrito.length === 0;
     continuarCompra.disabled = carrito.length === 0;
-    // Si cambia el carrito, hay que revisar nuevamente la compra.
+    // Ocultar la compra si cambian los productos
     compra.hidden = true;
 }
 
-// Botones para agregar y vaciar productos
-// Cada botón tiene el nombre y el precio en sus atributos data-.
+// Agregar y vaciar
+// Leer los datos del producto
 botonesAgregar.forEach(function (boton) {
     boton.addEventListener('click', function () {
         const id = boton.dataset.id;
@@ -143,8 +143,8 @@ vaciarCarrito.addEventListener('click', function () {
     document.getElementById('titulo-carrito').focus();
 });
 
-// Compra: datos, revisión y confirmación
-// Primero completamos los datos del cliente.
+// Compra de prueba
+// Abrir el formulario
 continuarCompra.addEventListener('click', function () {
     if (carrito.length === 0) {
         return;
@@ -157,14 +157,14 @@ continuarCompra.addEventListener('click', function () {
     nombreCliente.focus();
 });
 
-// Borramos el mensaje de error cuando el cliente corrige un campo.
+// Quitar el error al escribir
 [nombreCliente, telefonoCliente].forEach(function (campo) {
     campo.addEventListener('input', function () {
         campo.setCustomValidity('');
     });
 });
 
-// Revisamos los datos antes de mostrar el resumen.
+// Validar datos y mostrar el resumen
 formularioCompra.addEventListener('submit', function (evento) {
     evento.preventDefault();
     if (carrito.length === 0) {
@@ -173,7 +173,7 @@ formularioCompra.addEventListener('submit', function (evento) {
 
     const nombre = nombreCliente.value.trim();
     const telefono = telefonoCliente.value.trim();
-    // Quitamos espacios y símbolos para contar solo los números.
+    // Contar los números del teléfono
     const numerosTelefono = telefono.replace(/\D/g, '');
 
     nombreCliente.setCustomValidity('');
@@ -221,7 +221,7 @@ cancelarCompra.addEventListener('click', function () {
     continuarCompra.focus();
 });
 
-// Paso 3: terminar la simulación y preparar el carrito para otra compra.
+// Confirmar y vaciar el carrito
 confirmarPedido.addEventListener('click', function () {
     if (carrito.length === 0 || revisionPedido.hidden) {
         return;
@@ -238,5 +238,5 @@ confirmarPedido.addEventListener('click', function () {
     document.getElementById('titulo-confirmacion').focus();
 });
 
-// Estado inicial de la página
+// Mostrar el carrito al iniciar
 mostrarCarrito();

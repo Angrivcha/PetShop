@@ -1,4 +1,4 @@
-/* Estilos generales. La base es para celular (mobile first). */
+/* Estilos base para celular */
 * {
     margin: 0;
     padding: 0;
@@ -42,7 +42,7 @@ p {
     margin-bottom: 12px;
 }
 
-/* Encabezado y menú en azul y crema. */
+/* Encabezado y menú */
 header {
     background-color: #faf8f4;
     color: #315b76;
@@ -105,7 +105,7 @@ button:focus-visible {
     outline-offset: 3px;
 }
 
-/* Contenido principal */
+/* Contenido */
 main {
     flex: 1;
     width: 90%;
@@ -118,7 +118,7 @@ main section {
     margin-bottom: 45px;
 }
 
-/* Una bienvenida abierta, sin un recuadro alrededor. */
+/* Bienvenida */
 .bienvenida {
     display: flex;
     flex-direction: column;
@@ -163,7 +163,7 @@ main section {
     background-color: #24465d;
 }
 
-/* Categorías: son enlaces a las tarjetas, no filtros. */
+/* Enlaces de categorías */
 .categorias {
     display: flex;
     flex-wrap: wrap;
@@ -184,8 +184,7 @@ main section {
     background-color: #eddbb7;
 }
 
-/* Una tarjeta por fila en celular.
-   Grid permite aumentar las columnas en pantallas más grandes. */
+/* Productos: una columna en celular */
 .lista-productos {
     display: grid;
     grid-template-columns: 1fr;
@@ -273,7 +272,7 @@ main section {
     margin-bottom: 10px;
 }
 
-/* Contacto y pie de página */
+/* Contacto */
 footer {
     background-color: #dce6ed;
     padding: 35px 15px;
@@ -306,7 +305,7 @@ footer section {
     font-size: 14px;
 }
 
-/* Carrito: filas apiladas en celular y controles fáciles de tocar. */
+/* Botones y carrito */
 button {
     font-family: inherit;
     font-size: 14px;
@@ -362,7 +361,7 @@ button:disabled {
     font-size: 20px;
 }
 
-/* Formulario sencillo: una columna desde celular. */
+/* Formulario de compra */
 .compra {
     max-width: 720px;
     margin-top: 25px;
@@ -416,7 +415,7 @@ button:disabled {
     margin-bottom: 8px;
 }
 
-/* Interruptor de modo oscuro */
+/* Opción de modo oscuro */
 .control-tema {
     display: inline-flex;
     align-items: center;
@@ -440,8 +439,7 @@ button:disabled {
     outline-offset: 3px;
 }
 
-/* :has detecta el checkbox marcado y :checked activa el modo oscuro.
-   La elección no se guarda al cerrar la página. */
+/* Colores cuando se marca el modo oscuro */
 body:has(#modo-oscuro:checked) {
     color-scheme: dark;
     background-color: #202629;
@@ -519,7 +517,7 @@ body:has(#modo-oscuro:checked) .compra select {
     color: #f1ede5;
 }
 
-/* Tablet: dos productos por fila. */
+/* Tablet: 2 columnas */
 @media (min-width: 601px) {
     header {
         padding: 25px 20px 12px;
@@ -606,7 +604,7 @@ body:has(#modo-oscuro:checked) .compra select {
     }
 }
 
-/* PC: tres productos por fila. */
+/* PC: 3 columnas */
 @media (min-width: 1025px) {
     main {
         width: 90%;
@@ -622,7 +620,7 @@ body:has(#modo-oscuro:checked) .compra select {
     }
 }
 
-/* Ultrawide: cuatro productos por fila y ancho limitado. */
+/* Pantallas grandes: 4 columnas */
 @media (min-width: 1600px) {
     main,
     footer section {
