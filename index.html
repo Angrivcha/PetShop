@@ -1,122 +1,290 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>NaturPet</title>
     <link rel="icon" type="image/png" href="imagenes/logo.png">
     <link rel="stylesheet" href="estilos.css">
+    <script src="carrito.js" defer></script>
 </head>
 <body>
+    <!-- Encabezado con el logo y el nombre de la tienda. -->
     <header>
-        <a href="./" class="logo-link">
-            <img src="imagenes/logo.png" alt="Logo NaturPet">
+        <a href="index.html" class="logo-link">
+            <img src="imagenes/logo.png" alt="Logo NaturPet" width="60" height="60">
             <h1>NaturPet</h1>
         </a>
+        <p>Alimentos y accesorios para tu mascota</p>
+        <label class="control-tema" for="modo-oscuro">
+            <input type="checkbox" id="modo-oscuro">
+            Modo oscuro
+        </label>
     </header>
-    <!--EL MENU DE NAVEGACION NOS PERMITE ACCEDER A CUALQUIER SECCION DE LA PAGINA, YA SEA INICIO, NOSOTROS O CONTACTO.-->
-    <nav>
+
+    <!-- El menú permite ir a las secciones de esta misma página. -->
+    <nav aria-label="Menú principal">
         <ul>
             <li><a href="#nosotros">NOSOTROS</a></li>
             <li><a href="#productos">PRODUCTOS</a></li>
+            <li><a href="#carrito">CARRITO (<span id="contador-carrito">0</span>)</a></li>
             <li><a href="#contacto">CONTACTO</a></li>
         </ul>
     </nav>
 
     <main>
-        <!--NOS REALIZA EL REDIRECCIONAMIENTO DE LA PAGINA A LA SECCION QUE SELECCIONAMOS EN EL MENU DE NAVEGACION, PARA QUE NO TENGA QUE ESTAR HACIENDO SCROLL PARA LLEGAR A LA SECCION QUE QUEREMOS VER.-->
-        <section id="nosotros">
-            <h1>Nosotros</h1>
-            <p><h3>Bienvenido a NaturPet</h3></p>
-            <p>Aqui encontrara todo lo que necesita para su mascota, desde alimentos hasta accesorios y juguetes. Nuestro objetivo es brindar productos de alta calidad y un excelente servicio al cliente para garantizar la felicidad y el bienestar de su mascota.
-            </p>
+        <!-- Presentación de la tienda -->
+        <section id="nosotros" class="bienvenida">
+            <div class="bienvenida-texto">
+                <h2>Nosotros</h2>
+                <h3>Para sus paseos, juegos y siestas</h3>
+                <p>Hay cosas pequeñas que alegran su día: un juguete nuevo,
+                    un premio o una cama cómoda. En NaturPet encontrarás artículos
+                    para acompañar a tu perro o gato en esos momentos.</p>
+                <a class="enlace-productos" href="#productos">Ver nuestros productos</a>
+            </div>
+            <img class="bienvenida-imagen" src="imagenes/mascota-bienvenida.png"
+                alt="Perro descansando en una cama junto a una ventana" width="1536" height="1024">
         </section>
+
+        <!-- Catálogo de productos -->
         <section id="productos">
-            <h1>Productos</h1>
-            <p>Descubre nuestra amplia gama de productos para tu mascota.</p>
+            <h2>Productos</h2>
+            <p>Artículos para la alimentación, el descanso, el juego y el cuidado de tu mascota.</p>
+            <p id="mensaje-carrito" role="status">Agrega los productos que te gusten y revisa tu carrito.</p>
+            <noscript>Activa JavaScript en tu navegador para utilizar el carrito.</noscript>
 
-            <table>
-                <thead>
-                    <tr>
-                        <th>Categoría</th>
-                        <th>IMAGEN</th>
-                        <th>Producto</th>
-                        <th>Precio</th>
-                        <th>Stock</th>
-                    </tr>
-                </thead>
+            <h3>Categorías</h3>
+            <ul class="categorias">
+                <li><a href="#alimentos">Alimentos</a></li>
+                <li><a href="#accesorios">Accesorios</a></li>
+                <li><a href="#juguetes">Juguetes</a></li>
+                <li><a href="#higiene">Higiene</a></li>
+            </ul>
 
-                <tbody>
-                    <tr>
-                        <td rowspan="2">Alimentos</td>
-                        <td>
-                        <img src="imagenes/alimentoperro.png" 
-                        alt="Alimento para perro" 
-                        width="100">
-                        </td>
-                        <td>Alimento para perro</td>
-                        <td>S/ 45.00</td>
-                        <td>Disponible</td>
-                    </tr>
-                    <tr>
-                        <td>
-                        <img src="imagenes/alimentogato.png" 
-                        alt="Alimento para gato" 
-                        width="100">
-                        </td>
-                        <td>Alimento para gato</td>
-                        <td>S/ 35.00</td>
-                        <td>Disponible</td>
-                    </tr>
+            <!-- Cada artículo se presenta en una tarjeta con imagen y descripción. -->
+            <div class="lista-productos">
+                <article class="producto" id="alimentos">
+                    <img src="imagenes/snacks-perro.png" alt="Imagen de una bolsa de premios para perro"
+                        width="1536" height="1024" loading="lazy">
+                    <div class="producto-info">
+                        <p class="categoria-producto">Alimentos · Perros</p>
+                        <h3>Premios para perro</h3>
+                        <p>Un pequeño premio para celebrar lo que va aprendiendo.</p>
+                        <p class="precio">S/ 16.00</p>
+                        <button type="button" class="agregar-carrito"
+                            data-id="0" data-nombre="Premios para perro" data-precio="16">
+                            Agregar al carrito
+                        </button>
+                    </div>
+                </article>
+                <article class="producto">
+                    <img src="imagenes/snacks-gato.png" alt="Imagen de una bolsa de bocaditos para gato"
+                        width="1536" height="1024" loading="lazy">
+                    <div class="producto-info">
+                        <p class="categoria-producto">Alimentos · Gatos</p>
+                        <h3>Bocaditos para gato</h3>
+                        <p>Un pequeño premio para consentir a tu compañero.</p>
+                        <p class="precio">S/ 14.00</p>
+                        <button type="button" class="agregar-carrito"
+                            data-id="1" data-nombre="Bocaditos para gato" data-precio="14">
+                            Agregar al carrito
+                        </button>
+                    </div>
+                </article>
+                <article class="producto" id="accesorios">
+                    <img src="imagenes/plato-doble.png" alt="Imagen de un plato doble azul para mascotas"
+                        width="1536" height="1024" loading="lazy">
+                    <div class="producto-info">
+                        <p class="categoria-producto">Accesorios · Perros y gatos</p>
+                        <h3>Plato doble</h3>
+                        <p>Dos espacios para colocar su comida y agua.</p>
+                        <p class="precio">S/ 22.00</p>
+                        <button type="button" class="agregar-carrito"
+                            data-id="2" data-nombre="Plato doble" data-precio="22">
+                            Agregar al carrito
+                        </button>
+                    </div>
+                </article>
+                <article class="producto">
+                    <img src="imagenes/cama.png" alt="Imagen de una cama redonda color mostaza"
+                        width="1536" height="1024" loading="lazy">
+                    <div class="producto-info">
+                        <p class="categoria-producto">Accesorios · Perros y gatos</p>
+                        <h3>Cama redonda</h3>
+                        <p>Para echarse a gusto después de un paseo o una tarde de juego.</p>
+                        <p class="precio">S/ 65.00</p>
+                        <button type="button" class="agregar-carrito"
+                            data-id="3" data-nombre="Cama redonda" data-precio="65">
+                            Agregar al carrito
+                        </button>
+                    </div>
+                </article>
+                <article class="producto" id="juguetes">
+                    <img src="imagenes/cuerda.png" alt="Imagen de una cuerda con nudos de colores"
+                        width="1536" height="1024" loading="lazy">
+                    <div class="producto-info">
+                        <p class="categoria-producto">Juguetes · Perros</p>
+                        <h3>Cuerda con nudos</h3>
+                        <p>Para compartir un rato de juego con tu perro.</p>
+                        <p class="precio">S/ 15.00</p>
+                        <button type="button" class="agregar-carrito"
+                            data-id="4" data-nombre="Cuerda con nudos" data-precio="15">
+                            Agregar al carrito
+                        </button>
+                    </div>
+                </article>
+                <article class="producto">
+                    <img src="imagenes/raton.png" alt="Imagen de un ratón de juguete gris"
+                        width="1536" height="1024" loading="lazy">
+                    <div class="producto-info">
+                        <p class="categoria-producto">Juguetes · Gatos</p>
+                        <h3>Ratón de juguete</h3>
+                        <p>Para esos ratos en los que tu gato quiere perseguir y jugar.</p>
+                        <p class="precio">S/ 10.00</p>
+                        <button type="button" class="agregar-carrito"
+                            data-id="5" data-nombre="Ratón de juguete" data-precio="10">
+                            Agregar al carrito
+                        </button>
+                    </div>
+                </article>
+                <article class="producto" id="higiene">
+                    <img src="imagenes/cepillo.png" alt="Imagen de un cepillo de mango azul"
+                        width="1536" height="1024" loading="lazy">
+                    <div class="producto-info">
+                        <p class="categoria-producto">Higiene · Perros y gatos</p>
+                        <h3>Cepillo para mascotas</h3>
+                        <p>Para acompañar su rutina de cepillado en casa.</p>
+                        <p class="precio">S/ 20.00</p>
+                        <button type="button" class="agregar-carrito"
+                            data-id="6" data-nombre="Cepillo para mascotas" data-precio="20">
+                            Agregar al carrito
+                        </button>
+                    </div>
+                </article>
+                <article class="producto">
+                    <img src="imagenes/bolsas.png" alt="Imagen de rollos de bolsas para paseo"
+                        width="1536" height="1024" loading="lazy">
+                    <div class="producto-info">
+                        <p class="categoria-producto">Higiene · Perros</p>
+                        <h3>Bolsas para paseo</h3>
+                        <p>Para recoger los residuos durante sus paseos.</p>
+                        <p class="precio">S/ 8.00</p>
+                        <button type="button" class="agregar-carrito"
+                            data-id="7" data-nombre="Bolsas para paseo" data-precio="8">
+                            Agregar al carrito
+                        </button>
+                    </div>
+                </article>
+            </div>
+            <p class="nota-productos">Consulta las medidas, presentaciones y disponibilidad antes de pedir.</p>
+        </section>
+        <!-- Carrito y compra simulada -->
+        <section id="carrito" aria-labelledby="titulo-carrito">
+            <h2 id="titulo-carrito" tabindex="-1">Tu carrito</h2>
+            <p id="carrito-vacio">Tu carrito está vacío. Elige algo del catálogo para empezar.</p>
+            <ul id="lista-carrito"></ul>
+            <p class="total-carrito">Total de productos: <strong id="total-carrito">S/ 0.00</strong></p>
+            <button type="button" id="vaciar-carrito" disabled>Vaciar carrito</button>
+            <button type="button" id="continuar-compra" disabled>Continuar compra</button>
+            <p class="nota-productos">Carrito de práctica: todavía no realiza pedidos ni pagos.
+                Los productos se recogen en tienda. Al recargar la página, el carrito se vacía.</p>
+            <div id="compra" class="compra" hidden>
+                <!-- Paso 1: datos del cliente -->
+                <form id="formulario-compra">
+                    <h3>Datos para tu pedido de prueba</h3>
+                    <p>Completa los campos obligatorios. Esta compra es una simulación.</p>
+                    <label for="nombre-cliente">Nombre</label>
+                    <input id="nombre-cliente" type="text" autocomplete="name" required minlength="2" maxlength="80">
+                    <label for="telefono-cliente">Teléfono</label>
+                    <input id="telefono-cliente" type="tel" autocomplete="tel" required
+                        pattern="[0-9 +\(\)\-]{7,20}"
+                        title="Escribe un teléfono de 7 a 20 caracteres, con números, espacios, +, paréntesis o guiones.">
+                    <label for="tipo-entrega">Tipo de entrega</label>
+                    <select id="tipo-entrega">
+                        <option value="recojo">RECOJO EN TIENDA</option>
+                    </select>
+                    <p class="nota-productos">
+                        <a class="enlace-productos" href="https://maps.app.goo.gl/eybHAfJigcSNuFDu8?g_st=iw"
+                            target="_blank" rel="noopener noreferrer">Ver ubicación en Google Maps</a>
+                    </p>
+                    <div class="acciones-compra">
+                        <button type="submit">Revisar pedido</button>
+                        <button type="button" id="cancelar-compra">Volver al carrito</button>
+                    </div>
+                </form>
+                <!-- Paso 2: resumen antes de confirmar -->
+                <div id="revision-pedido" hidden>
+                    <h3 id="titulo-revision" tabindex="-1">Revisa tu pedido</h3>
+                    <p id="resumen-cliente"></p>
+                    <p id="resumen-entrega"></p>
+                    <ul id="resumen-productos"></ul>
+                    <p class="total-carrito">Total de productos: <strong id="resumen-total"></strong></p>
+                    <p id="resumen-envio"></p>
+                    <p>Al confirmar completarás una simulación. No se enviará un pedido ni se cobrará dinero.</p>
+                    <div class="acciones-compra">
+                        <button type="button" id="confirmar-pedido">Confirmar pedido de prueba</button>
+                        <button type="button" id="editar-datos">Editar datos</button>
+                    </div>
+                </div>
+                <!-- Paso 3: compra de prueba completada -->
+                <div id="pedido-completado" hidden>
+                    <h3 id="titulo-confirmacion" tabindex="-1">¡Pedido de prueba completado!</h3>
+                    <p>Terminaste la simulación de compra. No se realizó ningún cobro ni se envió un pedido a la tienda.</p>
+                    <a class="enlace-productos" href="#productos">Seguir viendo productos</a>
+                </div>
+            </div>
+        </section>
 
-                    <tr>
-                        <td>Accesorios</td>
-                        <td>
-                        <img src="imagenes/collargato.png" 
-                        alt="collar para gato" 
-                        width="100">
-                        </td>
-                        <td>Collar para gato</td>
-                        <td>S/ 18.00</td>
-                        <td>Disponible</td>
-                    </tr>
-
-                    <tr>
-                        <td>Juguetes</td>
-                        <td>
-                        <img src="imagenes/juguetegoma.png" 
-                        alt="juguete de goma" 
-                        width="100">
-                        </td>
-                        <td>Juguete de goma</td>
-                        <td>S/ 12.00</td>
-                        <td>Agotado</td>
-                    </tr>
-
-                    <tr>
-                        <td>Higiene</td>
-                        <td>
-                        <img src="imagenes/shampoo.png" 
-                        alt="Shampoo para mascotas" 
-                        width="100">
-                        </td>
-                        <td>Shampoo para mascotas</td>
-                        <td>S/ 25.00</td>
-                        <td>Disponible</td>
-                    </tr>
-                </tbody>
-            </table>
+        <!-- Información de la tienda y guía de compra -->
+        <section class="sobre-tienda">
+            <h2>Un poco sobre NaturPet</h2>
+            <p>Queremos reunir en un solo lugar artículos para la comida, el juego
+                y el cuidado de tu mascota. Puedes mirar el catálogo con calma
+                y consultarnos si necesitas conocer mejor un producto.</p>
+            <p>Cada mascota tiene sus gustos. Cuéntanos qué estás buscando
+                y revisamos contigo las medidas y presentaciones disponibles.</p>
+        </section>
+        <section id="como-consultar">
+            <h2>¿Cómo usar el carrito?</h2>
+            <ol class="pasos">
+                <li>Elige un producto y presiona «Agregar al carrito».</li>
+                <li>Abre Carrito en el menú para revisar los productos y sus cantidades.</li>
+                <li>Usa los botones + y − para cambiar cantidades, o «Quitar» para eliminar un producto.</li>
+                <li>Presiona «Continuar compra», completa tus datos y revisa el pedido de prueba antes de confirmarlo.</li>
+            </ol>
+            <p class="nota-productos">Si tienes dudas sobre un producto, puedes escribirnos desde Contacto.</p>
         </section>
     </main>
-    <!--PIE DE PAGINA-->
+
+    <!-- Pie de página con la sección de contacto. -->
     <footer>
         <section id="contacto">
-            <h1>Contacto</h1>
-            <p><a href="https://wa.me/51936745228?text=Hola%20NaturPet,%20quisiera%20más%20información"
-                target="_blank">
-                Escríbenos por WhatsApp</a>
+            <h2>Contacto</h2>
+            <p>¿Buscas algo para tu mascota? Escríbenos y conversemos.</p>
+            <dl class="datos-atencion">
+                <div>
+                    <dt>Horario de atención</dt>
+                    <dd><time datetime="09:00">09:00 a. m.</time> a <time datetime="21:00">09:00 p. m.</time></dd>
+                </div>
+                <div>
+                    <dt>Recojo en tienda</dt>
+                    <dd>
+                        <a class="enlace-productos" href="https://maps.app.goo.gl/eybHAfJigcSNuFDu8?g_st=iw"
+                            target="_blank" rel="noopener noreferrer">Ver ubicación en Google Maps</a>
+                    </dd>
+                </div>
+                <div>
+                    <dt>Formas de pago</dt>
+                    <dd>Pregunta por las opciones disponibles.</dd>
+                </div>
+            </dl>
+            <p>
+                <a class="enlace-whatsapp"
+                    href="https://wa.me/51936745228?text=Hola%20NaturPet%2C%20quisiera%20m%C3%A1s%20informaci%C3%B3n"
+                    target="_blank" rel="noopener noreferrer">Escríbenos por WhatsApp</a>
             </p>
-        
+            <p class="pie-texto">NaturPet — Artículos para mascotas</p>
         </section>
     </footer>
 </body>
