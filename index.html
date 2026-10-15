@@ -5,18 +5,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>NaturPet — Alimentos y accesorios para mascotas</title>
     <link rel="icon" type="image/png" href="imagenes/logo.png">
-    
-    <!-- Tipografía externa de Google Fonts (Unidad 2: Fuentes y archivos externos) -->
+
+    <!-- Cargo la fuente Poppins desde Google Fonts. -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
 
-    <!-- Hoja de estilos externa -->
+    <!-- Conecto los estilos y el archivo que controla el carrito. -->
     <link rel="stylesheet" href="estilos.css">
     <script src="carrito.js" defer></script>
 </head>
 <body>
-    <!-- Encabezado -->
+    <!-- 1. Muestro el logo, el nombre de la tienda y el modo oscuro. -->
     <header>
         <a href="index.html" class="logo-link">
             <img src="imagenes/logo.png" alt="Logo NaturPet" width="60" height="60">
@@ -29,7 +29,7 @@
         </label>
     </header>
 
-    <!-- Menú principal (Flexbox) -->
+    <!-- 2. Agrego enlaces para moverse por las secciones. -->
     <nav aria-label="Menú principal">
         <ul>
             <li><a href="#nosotros">NOSOTROS</a></li>
@@ -40,7 +40,7 @@
     </nav>
 
     <main>
-        <!-- Nosotros -->
+        <!-- 3. Presento la tienda y un enlace al catálogo. -->
         <section id="nosotros" class="bienvenida">
             <div class="bienvenida-texto">
                 <h2>Nosotros</h2>
@@ -51,7 +51,7 @@
             <img class="bienvenida-imagen" src="imagenes/mascota-bienvenida.png" alt="Perro descansando en una cama junto a una ventana" width="1536" height="1024">
         </section>
 
-        <!-- Catálogo de productos (CSS Grid) -->
+        <!-- 4. Muestro las categorías y las tarjetas de productos. -->
         <section id="productos">
             <h2>Productos</h2>
             <p>Artículos para la alimentación, el descanso, el juego y el cuidado de tu mascota.</p>
@@ -67,7 +67,7 @@
             </ul>
 
             <div class="lista-productos">
-                <!-- Alimentos -->
+                <!-- Productos de alimentación. -->
                 <article class="producto" id="alimentos" data-categoria="alimentos">
                     <img src="imagenes/snacks-perro.png" alt="Bolsa de premios para perro" width="1536" height="1024" loading="lazy">
                     <div class="producto-info">
@@ -94,7 +94,7 @@
                         </button>
                     </div>
                 </article>
-                <!-- 1. Hígado de res deshidratado -->
+
                 <article class="producto" data-categoria="alimentos">
                     <img src="imagenes/higado_res_deshidratado.png" alt="Bolsa de premios de hígado de res deshidratado"
                         width="1536" height="1024" loading="lazy">
@@ -110,7 +110,6 @@
                     </div>
                 </article>
 
-                <!-- 2. Bocaditos de salmón para gato -->
                 <article class="producto" data-categoria="alimentos">
                     <img src="imagenes/bocaditos_salmon_gato.png" alt="Bolsa de bocaditos de salmón para gatos"
                         width="1536" height="1024" loading="lazy">
@@ -126,7 +125,6 @@
                     </div>
                 </article>
 
-                <!-- 3. Cubos de pollo liofilizado -->
                 <article class="producto" data-categoria="alimentos">
                     <img src="imagenes/cubos_pollo_liofilizado.png" alt="Envase de cubos de pollo liofilizado"
                         width="1536" height="1024" loading="lazy">
@@ -142,7 +140,6 @@
                     </div>
                 </article>
 
-                <!-- 4. Tiras de pato deshidratado -->
                 <article class="producto" data-categoria="alimentos">
                     <img src="imagenes/tiras_pato_deshidratado.png" alt="Bolsa de tiras de carne de pato deshidratada"
                         width="1536" height="1024" loading="lazy">
@@ -158,7 +155,6 @@
                     </div>
                 </article>
 
-                <!-- 5. Premios de piel de pescado -->
                 <article class="producto" data-categoria="alimentos">
                     <img src="imagenes/premios_piel_pescado.png" alt="Bolsa de rollos crujientes de piel de pescado"
                         width="1536" height="1024" loading="lazy">
@@ -187,7 +183,7 @@
                     </div>
                 </article>
 
-                <!-- Accesorios -->
+                <!-- Productos de accesorios. -->
                 <article class="producto" id="accesorios" data-categoria="accesorios">
                     <img src="imagenes/plato-doble.png" alt="Plato doble azul para mascotas" width="1536" height="1024" loading="lazy">
                     <div class="producto-info">
@@ -214,7 +210,7 @@
                     </div>
                 </article>
 
-                <!-- Juguetes -->
+                <!-- Productos de juguetes. -->
                 <article class="producto" id="juguetes" data-categoria="juguetes">
                     <img src="imagenes/cuerda.png" alt="Cuerda con nudos de colores" width="1536" height="1024" loading="lazy">
                     <div class="producto-info">
@@ -241,7 +237,7 @@
                     </div>
                 </article>
 
-                <!-- Higiene -->
+                <!-- Productos de higiene. -->
                 <article class="producto" id="higiene" data-categoria="higiene">
                     <img src="imagenes/cepillo.png" alt="Cepillo de mango azul para mascotas" width="1536" height="1024" loading="lazy">
                     <div class="producto-info">
@@ -313,7 +309,7 @@
             <p class="nota-productos">Consulta las medidas, presentaciones y disponibilidad antes de pedir.</p>
         </section>
 
-        <!-- Carrito -->
+        <!-- 5. Dejo un carrito en la página para revisar cantidades y total. -->
         <section id="carrito" aria-labelledby="titulo-carrito">
             <h2 id="titulo-carrito" tabindex="-1">Tu carrito</h2>
             <p id="carrito-vacio">Tu carrito está vacío. Elige algo del catálogo para empezar.</p>
@@ -321,56 +317,10 @@
             <p class="total-carrito">Total de productos: <strong id="total-carrito">S/ 0.00</strong></p>
             <button type="button" id="vaciar-carrito" disabled>Vaciar carrito</button>
             <button type="button" id="continuar-compra" disabled>Continuar compra</button>
-            <p class="nota-productos">Carrito de práctica: todavía no realiza pedidos ni pagos. Los productos se recogen en tienda.</p>
-
-            <div id="compra" class="compra" hidden>
-                <form id="formulario-compra">
-                    <h3>Datos para tu pedido de prueba</h3>
-                    <p>Completa los campos obligatorios. Esta compra es una simulación.</p>
-                    <label for="nombre-cliente">Nombre</label>
-                    <input id="nombre-cliente" type="text" autocomplete="name" required minlength="2" maxlength="80">
-
-                    <label for="telefono-cliente">Teléfono</label>
-                    <input id="telefono-cliente" type="tel" autocomplete="tel" required pattern="[0-9 +\(\)\-]{7,20}" title="Escribe un teléfono de 7 a 20 caracteres, con números, espacios, +, paréntesis o guiones.">
-
-                    <label for="tipo-entrega">Tipo de entrega</label>
-                    <select id="tipo-entrega">
-                        <option value="recojo">RECOJO EN TIENDA</option>
-                    </select>
-
-                    <p class="nota-productos">
-                        <a class="enlace-productos" href="https://maps.app.goo.gl/eybHAfJigcSNuFDu8?g_st=iw" target="_blank" rel="noopener noreferrer">Ver ubicación en Google Maps</a>
-                    </p>
-
-                    <div class="acciones-compra">
-                        <button type="submit">Revisar pedido</button>
-                        <button type="button" id="cancelar-compra">Volver al carrito</button>
-                    </div>
-                </form>
-
-                <div id="revision-pedido" hidden>
-                    <h3 id="titulo-revision" tabindex="-1">Revisa tu pedido</h3>
-                    <p id="resumen-cliente"></p>
-                    <p id="resumen-entrega"></p>
-                    <ul id="resumen-productos"></ul>
-                    <p class="total-carrito">Total de productos: <strong id="resumen-total"></strong></p>
-                    <p id="resumen-envio"></p>
-                    <p>Al confirmar completarás una simulación. No se enviará un pedido ni se cobrará dinero.</p>
-                    <div class="acciones-compra">
-                        <button type="button" id="confirmar-pedido">Confirmar pedido de prueba</button>
-                        <button type="button" id="editar-datos">Editar datos</button>
-                    </div>
-                </div>
-
-                <div id="pedido-completado" hidden>
-                    <h3 id="titulo-confirmacion" tabindex="-1">¡Pedido de prueba completado!</h3>
-                    <p>Terminaste la simulación de compra. No se realizó ningún cobro ni se envió un pedido a la tienda.</p>
-                    <a class="enlace-productos" href="#productos">Seguir viendo productos</a>
-                </div>
-            </div>
+            <p class="nota-productos">Los productos se recogen en tienda.</p>
         </section>
 
-        <!-- Información de tienda -->
+        <!-- 6. Agrego información de la tienda e instrucciones del carrito. -->
         <section class="sobre-tienda">
             <h2>Un poco sobre NaturPet</h2>
             <p>Queremos reunir en un solo lugar artículos para la comida, el juego y el cuidado de tu mascota.</p>
@@ -382,12 +332,12 @@
                 <li>Elige un producto y presiona «Agregar al carrito».</li>
                 <li>Abre Carrito en el menú para revisar los productos y sus cantidades.</li>
                 <li>Usa los botones + y − para cambiar cantidades, o «Quitar» para eliminar un producto.</li>
-                <li>Presiona «Continuar compra», completa tus datos y revisa el pedido de prueba antes de confirmarlo.</li>
+                <li>Presiona «Continuar compra» y completa tus datos y el método de pago en la ventana flotante. Revisa y confirma tu pedido.</li>
             </ol>
         </section>
     </main>
 
-    <!-- Pie de página con vectores SVG (Unidad 2: Íconos y vectores) -->
+    <!-- 7. Muestro el contacto, horario y ubicación de la tienda. -->
     <footer>
         <section id="contacto">
             <h2>Contacto</h2>
@@ -409,7 +359,7 @@
                 </div>
             </dl>
             <p>
-                <!-- Vector SVG de WhatsApp integrado inline -->
+                <!-- Dibujo el ícono de WhatsApp con SVG. -->
                 <a class="enlace-whatsapp" href="https://wa.me/51936745228?text=Hola%20NaturPet" target="_blank" rel="noopener noreferrer">
                     <svg class="icono-svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
                         <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.312.045-.694.076-2.115-.515-1.748-.724-2.883-2.502-2.97-2.617-.087-.116-.708-.941-.708-1.792s.448-1.272.607-1.446c.159-.175.346-.219.462-.219.115 0 .23 0 .331.006.107.005.25.04.389.375.144.347.49 1.199.533 1.286.044.088.073.19.015.305-.058.117-.087.19-.173.292-.087.102-.183.228-.261.306-.087.087-.178.182-.077.355.101.173.45 0.742.964 1.201.662.591 1.221.774 1.394.861.174.086.275.073.376-.044.102-.116.433-.506.549-.68.116-.174.231-.145.39-.087s1.011.477 1.184.564.289.13.332.203c.043.072.043.419-.101.824z"/>
@@ -420,5 +370,95 @@
             <p class="pie-texto">NaturPet — Artículos para mascotas</p>
         </section>
     </footer>
+
+    <!-- 8. Dejo el botón del carrito visible mientras se recorre la página. -->
+    <button type="button" id="abrir-carrito-flotante" class="boton-carrito-flotante" aria-haspopup="dialog" aria-controls="carrito-flotante" hidden>
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M3 3h2l3 12h11l2-9H6"/><circle cx="9" cy="20" r="1"/><circle cx="18" cy="20" r="1"/></svg>
+        Carrito (<span id="cantidad-flotante">0</span>) · <span id="importe-flotante">S/ 0.00</span>
+    </button>
+
+    <!-- 9. En esta ventana hago todo el proceso de compra. -->
+    <dialog id="carrito-flotante" class="carrito-flotante" aria-labelledby="titulo-carrito-flotante">
+        <div class="encabezado-carrito-flotante">
+            <div>
+                <h2 id="titulo-carrito-flotante" tabindex="-1">Tu carrito</h2>
+                <p id="paso-compra-flotante" role="status">Paso 1 de 3 · Productos</p>
+            </div>
+            <button type="button" id="cerrar-carrito-flotante" aria-label="Cerrar carrito" autofocus>✕</button>
+        </div>
+        <div class="contenido-carrito-flotante">
+            <!-- Primero muestro los productos seleccionados. -->
+            <div id="productos-flotantes">
+                <p id="vacio-flotante">Tu carrito está vacío. Agrega productos del catálogo.</p>
+                <ul id="lista-carrito-flotante"></ul>
+            </div>
+            <div id="compra" class="compra" hidden>
+                <!-- Después pido los datos del cliente y muestro el QR de Yape. -->
+                <form id="formulario-compra">
+                    <h3>Datos para tu pedido</h3>
+                    <p>Completa los campos obligatorios para continuar.</p>
+                    <label for="nombre-cliente">Nombre</label>
+                    <input id="nombre-cliente" type="text" autocomplete="name" required minlength="2" maxlength="80">
+
+                    <label for="telefono-cliente">Teléfono</label>
+                    <input id="telefono-cliente" type="tel" autocomplete="tel" required pattern="[0-9 +\(\)\-]{9,20}" title="Escribe un teléfono con al menos 9 números. Puedes usar espacios, +, paréntesis o guiones.">
+
+                    <label for="tipo-entrega">Tipo de entrega</label>
+                    <select id="tipo-entrega">
+                        <option value="recojo">RECOJO EN TIENDA</option>
+                    </select>
+
+                    <label for="metodo-pago">Método de pago</label>
+                    <select id="metodo-pago" required>
+                        <option value="yape" selected>Yape</option>
+                    </select>
+                    <div id="panel-pago-qr" class="panel-pago-qr" hidden>
+                        <img id="imagen-pago-qr" alt="QR de Yape de Angel Aron Rivas Chavez" width="1132" height="1601">
+                    </div>
+
+                    <p class="nota-productos">
+                        <a class="enlace-productos" href="https://maps.app.goo.gl/eybHAfJigcSNuFDu8?g_st=iw" target="_blank" rel="noopener noreferrer">Ver ubicación en Google Maps</a>
+                    </p>
+
+                    <div class="acciones-compra">
+                        <button type="submit">Revisar pedido</button>
+                        <button type="button" id="cancelar-compra">Volver al carrito</button>
+                    </div>
+                </form>
+
+                <!-- Antes de confirmar, muestro el resumen para revisarlo. -->
+                <div id="revision-pedido" hidden>
+                    <h3 id="titulo-revision" tabindex="-1">Revisa tu pedido</h3>
+                    <p id="resumen-cliente"></p>
+                    <p id="resumen-entrega"></p>
+                    <p id="resumen-pago"></p>
+                    <ul id="resumen-productos"></ul>
+                    <p class="total-carrito">Total de productos: <strong id="resumen-total"></strong></p>
+                    <p id="resumen-envio"></p>
+                    <p>Revisa tus datos y productos antes de confirmar el pedido.</p>
+                    <div class="acciones-compra">
+                        <button type="button" id="confirmar-pedido">Confirmar pedido</button>
+                        <button type="button" id="editar-datos">Editar datos</button>
+                    </div>
+                </div>
+
+                <!-- Al terminar, preparo el enlace para enviar el comprobante por WhatsApp. -->
+                <div id="pedido-completado" hidden>
+                    <h3 id="titulo-confirmacion" tabindex="-1">¡Pedido confirmado!</h3>
+                    <p>Envía el comprobante de pago por WhatsApp junto al resumen de tu pedido para coordinar el recojo en tienda.</p>
+                    <p id="comprobante-pedido"></p>
+                    <a id="enviar-comprobante" class="enlace-whatsapp" target="_blank" rel="noopener noreferrer">Enviar comprobante de pago realizado</a>
+                    <p class="ayuda-comprobante">Se abrirá WhatsApp con el resumen del pedido. Adjunta allí la imagen de tu comprobante y envía el mensaje.</p>
+                    <button type="button" id="finalizar-compra">Seguir viendo productos</button>
+                </div>
+            </div>
+        </div>
+        <div id="pie-carrito-flotante" class="pie-carrito-flotante">
+            <p class="total-carrito">Total: <strong id="total-flotante" aria-live="polite">S/ 0.00</strong></p>
+            <p>Recojo en tienda · Sin cargo de envío</p>
+            <button type="button" id="comprar-desde-flotante" disabled>Continuar compra</button>
+            <button type="button" id="seguir-comprando">Seguir comprando</button>
+        </div>
+    </dialog>
 </body>
 </html>
